@@ -6,7 +6,7 @@
 # set email address for sending job status
 #$ -M fixme@drexel.edu
 # project - basically, your research group name with "Grp" replaced by "Prj"
-# -P fixmePrj
+#$ -P fixmePrj
 # select parallel environment, and number of job slots
 #$ -t 1-100:1
 # request 15 min of wall clock time "h_rt" = "hard real time" (format is HH:MM:SS, or integer seconds)
