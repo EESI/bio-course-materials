@@ -6,7 +6,7 @@
 # set email address for sending job status
 #$ -M fixme@drexel.edu
 # project - basically, your research group name
-# -P rosenclassGrp
+#$ -P rosenclassGrp
 # This creates an array job that has 100 processes
 #$ -t 1-100:1
 # request 15 min of wall clock time "h_rt" = "hard real time" (format is HH:MM:SS, or integer seconds)
