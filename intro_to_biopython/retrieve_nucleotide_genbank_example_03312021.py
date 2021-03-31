@@ -18,7 +18,6 @@ This file extracts all 16S rRNA genes from a Streptococcus pyogenes Manfredo com
 from Bio import Entrez
 from Bio import SeqIO
 from Bio import Seq	
-from Bio.Alphabet import IUPAC
 
 
 # Can put any email address below
