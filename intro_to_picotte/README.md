@@ -101,4 +101,5 @@ where $JOBID is the job id associated with your job script (a few digits number)
 # New to BASH?
 Bash programming is essential for you to navigate and manage your files/directoroes in Picotte. If you are interested in a [Bash tutorial](https://nbviewer.jupyter.org/github/gditzler/bio-course-materials/blob/master/notebooks/Bash-Tutorial.ipynb), please go ahead and go over it.
 
-
+# Advanced: Writing a Task Array
+test_array.sh is a script that shows an example of how to index a vector using the different SLURM Array Task IDs.  All jobs can be run in parallel on different cores.  Making your jobs run in parallel instead of serially will save your time -- however, the computational time and resources stay the same.
