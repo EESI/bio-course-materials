@@ -20,4 +20,4 @@
 # run this file by executing the name and piping out to file, e.g.: ./get_16S_from_pyogenes.sh > rRNAs_v2.fna
 
 #Assign the Accession ID of the genome to a variable
-singularity run --bind /ifs/groups/eces450650Grp/test_slurm:/test_slurm ../containers/edirect_latest.sif bash /test_slurm/rng_example.sh > rRNAs_v2.fna
+singularity run --bind /ifs/groups/eces450650Grp/test_slurm/bio-course-materials/edirect_container_run_script:/run_script /ifs/groups/eces450650Grp/containers/edirect_latest.sif bash /run_script/rng_example.sh > rRNAs_v2.fna
