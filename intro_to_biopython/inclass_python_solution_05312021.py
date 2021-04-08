@@ -22,15 +22,15 @@ Entrez.email = 'glr26@drexel.edu'
 top_records=[]
 
 # search sequences by a combination of keywords
-handle = Entrez.esearch(db="nucleotide", term="\"cytochrome c oxidase i\" AND viridiplantae[Organism] and 450:2000[Sequence Length] NOT sCAFFOLD")
+handle = Entrez.esearch(db="nucleotide", term="\"cytochrome c oxidase i\" AND viridiplantae[Organism] AND 450:2000[Sequence Length] NOT scaffold")
 records = Entrez.read(handle)
 top_records.append(records['IdList'][0])
 
-handle1=Entrez.esearch(db="nucleotide", term="\"cytochrome oxidase i\" AND fungi[Organism] and 450:2000[Sequence Length] NOT scaffold")
+handle1=Entrez.esearch(db="nucleotide", term="\"cytochrome oxidase i\" AND fungi[Organism] AND 450:2000[Sequence Length] NOT scaffold")
 records = Entrez.read(handle1)
 top_records.append(records['IdList'][0])
 
-handle2=Entrez.esearch(db="nucleotide", term="\"cytochrome oxidase i\" AND animalia[Organism] and 450:2000[Sequence Length] NOT scaffold")
+handle2=Entrez.esearch(db="nucleotide", term="\"cytochrome oxidase i\" AND animalia[Organism] AND 450:2000[Sequence Length] NOT scaffold")
 records = Entrez.read(handle2)
 top_records.append(records['IdList'][0])
 
