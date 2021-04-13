@@ -4,9 +4,9 @@ indir=qiime2_tutorial
 ls /${indir}/ # load sequences
 qiime tools import --type EMPSingleEndSequences --input-path /${indir}/emp-single-end-sequences --output-path /${indir}/emp-single-end-sequences.qza
 # demultiplexing
-qiime demux emp-single --p-n-threads 32 --i-seqs /${indir}/emp-single-end-sequences.qza --m-barcodes-file /${indir}/sample-metadata.tsv --m-barcodes-column BarcodeSequence --o-per-sample-sequences /${indir}/demux.qza --output-dir /${indir}/out_tmp
+qiime demux emp-single --i-seqs /${indir}/emp-single-end-sequences.qza --m-barcodes-file /${indir}/sample-metadata.tsv --m-barcodes-column BarcodeSequence --o-per-sample-sequences /${indir}/demux.qza --output-dir /${indir}/out_tmp
 # summary
-qiime demux summarize --p-n-threads 32 --i-data /${indir}/demux.qza --o-visualization /${indir}/demux.qzv --output-dir /${indir}/out_tmp2
+qiime demux summarize --i-data /${indir}/demux.qza --o-visualization /${indir}/demux.qzv --output-dir /${indir}/out_tmp2
 # dada table
 qiime dada2 denoise-single \
   --p-n-threads 32 \
