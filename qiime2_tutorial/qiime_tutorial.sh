@@ -1,4 +1,3 @@
-newgrp eces450650Grp
 chmod 777 $TMP
 indir=qiime2_tutorial
 ls # load sequences
