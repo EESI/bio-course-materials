@@ -1,6 +1,8 @@
 mkdir $TMP
 chmod 777 $TMP
-indir=${container_dir}
+echo ${containerdir}
+echo $SLURM_CPUS_PER_TASK
+indir=${containerdir}
 ls ${indir}/ # load sequences
 qiime tools import --type EMPSingleEndSequences --input-path ${indir}/emp-single-end-sequences --output-path ${indir}/emp-single-end-sequences.qza
 # demultiplexing
