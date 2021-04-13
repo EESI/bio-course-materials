@@ -3,7 +3,7 @@
 ### !!! CHANGE !!! the email address to your drexel email
 #SBATCH --mail-user=abc123@drexel.edu
 ### !!! CHANGE !!! the account - you need to consult with the professor
-#SBATCH --account=eces450650Grp
+#SBATCH --account=eces450650Prj
 ### select number of nodes (usually you need only 1 node)
 #SBATCH --nodes=1
 ### select number of tasks per node
