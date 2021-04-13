@@ -18,4 +18,4 @@
 #SBATCH --partition=def
 
 newgrp eces450650Grp
-singularity exec --bind /ifs/groups/eces450650Grp/bio-course-materials/qiime2_tutorial:/qiime2_tutorial /ifs/groups/eces450650Grp/containers/qiime bash /qiime2_tutorial/qiime_tutorial.sh
+singularity exec --bind .:/qiime2_tutorial /ifs/groups/eces450650Grp/containers/qiime bash /qiime2_tutorial/qiime_tutorial.sh
