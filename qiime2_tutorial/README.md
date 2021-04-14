@@ -6,7 +6,7 @@ First, download the Git repo to you home folder on the login node of Proteus. Be
   # Assuming you have ssh'd into the head node and are in your
   # home folder. Run 'pwd' without the ticks. You should see
   # /home/<your user name>. Then run:
-  git clone https://github.com/z2e2/qiime2_tutorial.git
+  git clone https://github.com/EESI/bio-course-materials/qiime2_tutorial
   cd qiime2_tutorial/
 ```
 
@@ -22,25 +22,27 @@ This tutorial goes over how to use Qiime2 to process data from a high-throughput
 * `sample-metadata.tsv` contains metadata (subject info, barcode, body site, etc)
 * `submitter.sh` is the script we're going to submit to SGE
 
-# Submitting to the Proteus cluster
+# Submitting to the Picotte cluster
 
-You need to make sure you change from your group to the courses group before you submit your job to the queuing system. This is true for any job that you run. Once you have changed your group, run: 
-
-```bash 
-  newgrp rosenclassGrp
-  qsub submitter.sh
-```
-
-Use the `qstat` command to check the status of the job. SGE produces two files, an error and output file, in the directory where the script was submitted into the queue. Runnign `qstat` should give you something like 
+You need to make sure you change your email to the right one in the `submitter.sh` script.
 
 ```bash 
-[zz374@proteusi01 qiime2_tutorial]$ qstat
-job-ID  prior   name       user         state submit/start at     queue                          jclass                         slots ja-task-ID 
-------------------------------------------------------------------------------------------------------------------------------------------------
- 530147 0.00500 submitter. zz374        r     4/16/2019 12:30:00 all.q@ic22n03.cm.cluster                                          1        
+  ### !!! CHANGE !!! the email address to your drexel email
+  #SBATCH --mail-user=abc123@drexel.edu
 ```
+Then submit the script:
+```bash
+sbatch submitter.sh
+````
 
-where the `r` lets us know the code is running. 
+
+Use the `squeue` command to check the status of the job. 
+
+Also SLURM produces an outfile that begins with slurm- and ends with .out in the directory where the script was submitted into the queue. You should be able to see the status of the job by typing
+
+````bash
+more slurm-?num?.out
+````
 
 You can check the file contents for any errors or things that would have normally been dumped to the standard output. Check the `core-metrics-results/` folder for more contents of the Qiime output being executed in `submitter.sh` 
 
@@ -74,10 +76,10 @@ total 6.6M
 
 # Acknowledgements
 
-* This tutorial instruction is adapted from a previous version made by [Gregory Ditzler](https://github.com/gditzler/bio-course-materials/tree/master/proteus-demo). 
+* This tutorial instruction is adapted to a QIIME2 container on Picotte from a previous version made by [Zhengqiao Zhao](https://github.com/z2e2/qiime2_tutorial) and [Gregory Ditzler](https://github.com/gditzler/bio-course-materials/tree/master/proteus-demo). 
  
 # Supplementary commands:
-1. For taxanomic analysis, download Greengenes file from 2018.8 so that the file can be used by Qiime2-2018 installed on Proteus.
+1. For taxonomic analysis, download Greengenes file from 2018.8 so that the file can be used by Qiime2-2018 installed on Proteus.
 ```
 wget \
   -O "gg-13-8-99-515-806-nb-classifier.qza" \
