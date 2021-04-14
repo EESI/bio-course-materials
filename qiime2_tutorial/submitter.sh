@@ -18,6 +18,12 @@
 #SBATCH --partition=def
 
 newgrp eces450650Grp
-mkdir $TMP
+/bin/rm -rf out_tmp*  core-metrics-results
+
 containerdir=/qiime2_tutorial
-SINGULARITYENV_containerdir=${containerdir} singularity exec --bind .:/${containerdir} /ifs/groups/eces450650Grp/containers/qiime bash ${containerdir}/qiime_tutorial.sh
+SINGULARITYENV_containerdir=${containerdir} singularity exec --bind .:/${containerdir},${TMP}:/tmp,${TMP}:${TMP} /ifs/groups/eces450650Grp/containers/qiime bash ${containerdir}/qiime_tutorial.sh
+
+### optionally, capture logs
+#mkdir LOGS_${SLURM_JOB_ID}
+#cp $TMP/qiime2*.log LOGS_${SLURM_JOB_ID}
+

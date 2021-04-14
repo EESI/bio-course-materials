@@ -1,8 +1,7 @@
-mkdir $TMP
-chmod 777 $TMP
 echo ${containerdir}
 echo $SLURM_CPUS_PER_TASK
 indir=${containerdir}
+
 ls ${indir}/ # load sequences
 qiime tools import --type EMPSingleEndSequences --input-path ${indir}/emp-single-end-sequences --output-path ${indir}/emp-single-end-sequences.qza
 # demultiplexing
@@ -43,7 +42,7 @@ qiime phylogeny align-to-tree-mafft-fasttree \
   --o-rooted-tree ${indir}/rooted-tree.qza
 # alpha/beta diversity
 qiime diversity core-metrics-phylogenetic \
-  --p-n-threads $SLURM_CPUS_PER_TASK \
+  --p-n-jobs-or-threads $SLURM_CPUS_PER_TASK \
   --i-phylogeny ${indir}/rooted-tree.qza \
   --i-table ${indir}/table.qza \
   --p-sampling-depth 1109 \
