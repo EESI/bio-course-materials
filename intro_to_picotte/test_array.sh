@@ -21,8 +21,7 @@
 ### Set a parameter that will rerun the code if the queue gets interrupted
 #SBATCH --requeue
 
-# run this file by executing the name and piping out to file, e.g.: ./get_16S_fr
-om_pyogenes.sh > rRNAs_v2.fna
+# run this file by executing the name and piping out to file, e.g.: ./get_16S_from_pyogenes.sh > rRNAs_v2.fna
 
 declare -a GENES=("NS7a" "Spike" "NSP11" "NSP10" "NS6" "NSP2" "N" "E" "NSP12" \
 "NSP4" "NS8" "NSP1" "NSP6" "NSP9" "NSP5" "NSP3" "NS9b" "NSP14" "NSP7" "NSP15" \
