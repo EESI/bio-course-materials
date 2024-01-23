@@ -1,9 +1,9 @@
 #!/bin/bash
 #
 ### !!! CHANGE !!! the email address to your drexel email
-#SBATCH --mail-user=abc123@drexel.edu
+#SBATCH --mail-user=glr26@drexel.edu
 ### !!! CHANGE !!! the account - you need to consult with the professor
-#SBATCH --account=eces450650Prj
+#SBATCH --account=eces450650prj
 ### select number of nodes (usually you need only 1 node)
 #SBATCH --nodes=1
 ### select number of tasks per node
@@ -15,13 +15,13 @@
 ### memory size required per node (this is important, you also need to estimate a upper bound)
 #SBATCH --mem=32GB
 ### select the partition "def" (this is the default partition but you can change according to your application)
-#SBATCH --partition=def
+#SBATCH --partition=edu
 
-newgrp eces450650Grp
+#this deletes old output to run again
 /bin/rm -rf out_tmp*  core-metrics-results
 
 containerdir=/qiime2_tutorial
-SINGULARITYENV_containerdir=${containerdir} singularity exec --bind .:/${containerdir},${TMP}:/tmp,${TMP}:${TMP} /ifs/groups/eces450650Grp/containers/qiime bash ${containerdir}/qiime_tutorial.sh
+SINGULARITYENV_containerdir=${containerdir} singularity exec --fakeroot --bind .:/${containerdir},${TMP}:/tmp,${TMP}:${TMP} /ifs/groups/eces450650Grp/containers/qiime bash ${containerdir}/qiime_tutorial.sh
 
 ### optionally, capture logs
 #mkdir LOGS_${SLURM_JOB_ID}
