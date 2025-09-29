@@ -3,19 +3,19 @@
 ### !!! CHANGE !!! the email address to your drexel email
 #SBATCH --mail-user=glr26@drexel.edu
 ### !!! CHANGE !!! the account - you need to consult with the professor
-#SBATCH --account=eces450650Prj
+#SBATCH --account=eces450650prj
 ### select number of nodes (usually you need only 1 node)
 #SBATCH --nodes=1
 ### select number of tasks per node
 #SBATCH --ntasks=27
 ### select number of cpus per task (you need to tweak this when you run a multi-thread program)
 #SBATCH --cpus-per-task=1
-### request 15 minutes of wall clock time (if you request less time, you can wait for less time to get your job run by the system, you need to have a good esitmation of the run time though).
+### request 10 minutes of wall clock time (if you request less time, you can wait for less time to get your job run by the system, you need to have a good esitmation of the run time though).
 #SBATCH --time=00:10:00
 ### memory size required per node (this is important, you also need to estimate a upper bound)
 #SBATCH --mem=1GB
-### select the partition "def" (this is the default partition but you can change according to your application)
-#SBATCH --partition=def
+### select the partition "edu" (this is the default partition but you can change according to your application)
+#SBATCH --partition=edu
 ### Set the number of array tasks that you want to spawn from this job.
 #SBATCH --array=0-26
 ### Set a parameter that will rerun the code if the queue gets interrupted
