@@ -21,7 +21,7 @@
 /bin/rm -rf out_tmp*  core-metrics-results
 
 containerdir=/qiime2_tutorial
-SINGULARITYENV_containerdir=${containerdir} singularity exec --fakeroot --bind .:/${containerdir},${TMP}:/tmp,${TMP}:${TMP} /ifs/groups/eces450650Grp/containers/qiime bash ${containerdir}/qiime_tutorial.sh
+SINGULARITYENV_containerdir=${containerdir} singularity exec --fakeroot --bind .:/${containerdir},${TMP}:/tmp,${TMP}:${TMP} /ifs/groups/eces450650Grp/containers/qiime_amplicon_2025.7.sif bash ${containerdir}/qiime_tutorial.sh
 
 ### optionally, capture logs
 #mkdir LOGS_${SLURM_JOB_ID}
